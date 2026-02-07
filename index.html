@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <title>Valentine 💖</title>
   <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #ffe6eb;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
     .heart {
       position: fixed;
       bottom: -20px;
@@ -13,36 +25,21 @@
     } 
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh) scale(1.5);
-        opacity: 0;
-      }
-    }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #ffe6eb;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
     }
 
     .container {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     h1 {
       font-size: 2.5rem;
       color: #d6336c;
     }
-
     button {
       font-size: 1.2rem;
       padding: 12px 24px;
@@ -61,26 +58,58 @@
     #no {
       background-color: #adb5bd;
       color: white;
-      position: absolute;
+      position: relative;
+      transition: transform 0.2s ease;
+
     }
 
-    .hidden {
+
+   .hidden {
       display: none;
     }
 
     .happy img {
       width: 250px;
       border-radius: 12px;
+      margin: 0 auto;
     }
 
-    .options {
+    .options, form {
       margin-top: 15px;
+      text-align: center;
     }
 
-    select {
+    select, input[type="text"] {
       padding: 8px;
       font-size: 1rem;
       margin: 5px;
+      border-radius: 8px;
+      border: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    label {
+      display: block;
+      text-align: center;
+      margin: 5px 0;
+      font-size: 1.1rem;
+    }
+
+    #submit {
+      background-color: #ff4d6d;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .tenor-gif-embed {
+      margin: 20px auto;
     }
   </style>
 </head>
@@ -88,46 +117,47 @@
 
   <div class="container" id="question">
     <h1>Mia, can I be your Valentine?</h1>
-    <div style="display: flex; justify-content: center;">
-      <div class="tenor-gif-embed"
-           data-postid="17126117470336363610"
-           data-share-method="host"
-           data-aspect-ratio="1"
-           data-width="50%">
-        <a href="https://tenor.com/view/bubu-dudu-sseeyall-gif-17126117470336363610">
-          Bubu Dudu Sseeyall Sticker
-        </a>
-        from
-        <a href="https://tenor.com/search/bubu+dudu-stickers">
-          Bubu Dudu Stickers
-        </a>
-      </div>
+
+    <div class="tenor-gif-embed"
+         data-postid="17126117470336363610"
+         data-share-method="host"
+         data-aspect-ratio="1"
+         data-width="50%">
+      <a href="https://tenor.com/view/bubu-dudu-sseeyall-gif-17126117470336363610">
+        Bubu Dudu Sseeyall Sticker
+      </a>
+      from
+      <a href="https://tenor.com/search/bubu+dudu-stickers">
+        Bubu Dudu Stickers
+      </a>
     </div>
     
-    <script async src="https://tenor.com/embed.js"></script>    <button id="yes">Yessssss</button>
+    <script async src="https://tenor.com/embed.js"></script>    
+
+    <button id="yes">Yessssss</button>
     <button id="no">No 😭</button>
   </div>
 
   <div class="container happy hidden" id="happy">
     <h1>awwwwww yeahhhh 😎</h1>
 
-    <div style="display: flex; justify-content: center;">
-      <div class="tenor-gif-embed"
-           data-postid="15689483814935894323"
-           data-share-method="host"
-           data-aspect-ratio="1"
-           data-width="50%">
-        <a href="https://tenor.com/view/bear-hug-bear-hug-cute-bear-love-gif-15689483814935894323">
-          Bear Hug Sticker
-        </a>
-        from
-        <a href="https://tenor.com/search/bear-stickers">
-          Bear Stickers
-        </a>
-      </div>
+    <div class="tenor-gif-embed"
+         data-postid="15689483814935894323"
+         data-share-method="host"
+         data-aspect-ratio="1"
+         data-width="50%">
+      <a href="https://tenor.com/view/bear-hug-bear-hug-cute-bear-love-gif-15689483814935894323">
+        Bear Hug Sticker
+      </a>
+      from
+      <a href="https://tenor.com/search/bear-stickers">
+        Bear Stickers
+      </a>
     </div>
     
-    <script async src="https://tenor.com/embed.js"></script>    <form action="https://formspree.io/f/mojnqerq" method="POST">
+    <script async src="https://tenor.com/embed.js"></script>    
+
+    <form action="https://formspree.io/f/mojnqerq" method="POST">
       
       <p><strong>What should we do? 🤔</strong></p>
 
@@ -138,13 +168,12 @@
         <option value="Other">Other...</option>
       </select>
       
-      <br><br>
-      
       <input 
         type="text" 
         name="Other Activity" 
         id="otherActivity" 
-        style="display:none; padding:8px; border-radius:8px; border:none;"
+        placeholder="Tell me 💖"
+        style="display:none; padding:8px; border-radius:8px; border:none; width:50%; margin:10px auto;"
       >
 
       <p><strong>When?</strong></p>
@@ -152,37 +181,52 @@
       <label>
         <input type="checkbox" name="Date[]" value="February 13">
         February 13
-      </label><br>
+      </label>
       
       <label>
         <input type="checkbox" name="Date[]" value="February 14 💘">
         February 14 💘
-      </label><br>
+      </label>
       
       <label>
         <input type="checkbox" name="Date[]" value="February 15">
         February 15
-      </label><br>
+      </label>
       
       <label>
         <input type="checkbox" name="Date[]" value="February 16">
         February 16
-      </label><br>
-                    
-      <br><br>
-      <button type="submit" id="submit">
-        Send!
-      </button>
+      </label>
+
+      <button type="submit" id="submit">Send!</button>
     </form>
   </div>
 
   <script>
-    const noBtn = document.getElementById("no");
     const yesBtn = document.getElementById("yes");
     const question = document.getElementById("question");
     const happy = document.getElementById("happy");
 
+
+    const noBtn = document.getElementById("no");
     let scale = 1;
+
+noBtn.addEventListener("click", () => {
+  scale *= 0.85;
+
+  // Take button out of flex so it can move freely
+  noBtn.style.position = "absolute";
+
+  // Random position inside viewport
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
+
+  // Apply shrinking scale
+  noBtn.style.transform = `scale(${scale})`;
+});
 
     noBtn.addEventListener("click", () => {
       scale *= 0.85;
@@ -199,38 +243,38 @@
       question.classList.add("hidden");
       happy.classList.remove("hidden");
     });
+
     function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
 
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
-    heart.style.animationDuration = Math.random() * 2 + 4 + "s";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 2 + 4 + "s";
 
-    document.body.appendChild(heart);
+      document.body.appendChild(heart);
 
-    setTimeout(() => {
-      heart.remove();
-    }, 5000);
-  }
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
 
-// create hearts continuously
-  setInterval(createHeart, 300);
+    setInterval(createHeart, 300);
 
-  function toggleOtherActivity() {
-  const select = document.getElementById("activity");
-  const otherInput = document.getElementById("otherActivity");
+    function toggleOtherActivity() {
+      const select = document.getElementById("activity");
+      const otherInput = document.getElementById("otherActivity");
 
-  if (select.value === "Other") {
-    otherInput.style.display = "block";
-    otherInput.required = true;
-  } else {
-    otherInput.style.display = "none";
-    otherInput.required = false;
-    otherInput.value = "";
-  }
-}
+      if (select.value === "Other") {
+        otherInput.style.display = "block";
+        otherInput.required = true;
+      } else {
+        otherInput.style.display = "none";
+        otherInput.required = false;
+        otherInput.value = "";
+      }
+    }
   </script>
 
 </body>
